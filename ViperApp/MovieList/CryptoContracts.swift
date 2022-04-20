@@ -14,14 +14,17 @@ protocol CryptoViewProtocol {
 }
 
 
-//MARK: - Interactor
+//MARK: - Interactor (3)
 protocol CryptoInteractorProtocol {
+    var presenter: CryptoPresenterProtocol? { get set }
     
+    // api download
+    func downloadCryptos()
 }
 
 
 
-//MARK: - Presenter
+//MARK: - Presenter (2)
 protocol CryptoPresenterProtocol {
     
     // 1- V,I,R protocolleri tipinde, değişken olarak tanımla.
@@ -38,7 +41,7 @@ protocol CryptoPresenterProtocol {
 
 
 
-//MARK: - Router
+//MARK: - Router  (1)
 protocol CryptoRouterProtocol {
     static func startExecution() -> CryptoRouterProtocol
 }

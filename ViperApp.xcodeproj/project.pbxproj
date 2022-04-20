@@ -12,6 +12,8 @@
 		630498892810532400027BCF /* CryptoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630498882810532400027BCF /* CryptoRouter.swift */; };
 		6304988B2810539F00027BCF /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304988A2810539F00027BCF /* CryptoModel.swift */; };
 		6304988D2810554300027BCF /* CryptoContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304988C2810554300027BCF /* CryptoContracts.swift */; };
+		6304989028105E8800027BCF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6304988F28105E8800027BCF /* Alamofire */; };
+		6304989228105F1D00027BCF /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304989128105F1D00027BCF /* Decoders.swift */; };
 		636764CE28103B610013E589 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636764CD28103B610013E589 /* AppDelegate.swift */; };
 		636764D028103B610013E589 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636764CF28103B610013E589 /* SceneDelegate.swift */; };
 		636764D228103B610013E589 /* CryptoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636764D128103B610013E589 /* CryptoVC.swift */; };
@@ -24,6 +26,7 @@
 		630498882810532400027BCF /* CryptoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoRouter.swift; sourceTree = "<group>"; };
 		6304988A2810539F00027BCF /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
 		6304988C2810554300027BCF /* CryptoContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoContracts.swift; sourceTree = "<group>"; };
+		6304989128105F1D00027BCF /* Decoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoders.swift; sourceTree = "<group>"; };
 		636764CA28103B610013E589 /* ViperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636764CD28103B610013E589 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		636764CF28103B610013E589 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6304989028105E8800027BCF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 				636764E128103BAA0013E589 /* Core */,
 				63049883281052FB00027BCF /* MovieList */,
 				6304988A2810539F00027BCF /* CryptoModel.swift */,
+				6304989128105F1D00027BCF /* Decoders.swift */,
 			);
 			path = ViperApp;
 			sourceTree = "<group>";
@@ -108,6 +113,9 @@
 			dependencies = (
 			);
 			name = ViperApp;
+			packageProductDependencies = (
+				6304988F28105E8800027BCF /* Alamofire */,
+			);
 			productName = ViperApp;
 			productReference = 636764CA28103B610013E589 /* ViperApp.app */;
 			productType = "com.apple.product-type.application";
@@ -136,6 +144,9 @@
 				Base,
 			);
 			mainGroup = 636764C128103B610013E589;
+			packageReferences = (
+				6304988E28105E8800027BCF /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 636764CB28103B610013E589 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -161,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6304989228105F1D00027BCF /* Decoders.swift in Sources */,
 				6304988D2810554300027BCF /* CryptoContracts.swift in Sources */,
 				636764D228103B610013E589 /* CryptoVC.swift in Sources */,
 				630498892810532400027BCF /* CryptoRouter.swift in Sources */,
@@ -367,6 +379,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6304988E28105E8800027BCF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6304988F28105E8800027BCF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6304988E28105E8800027BCF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 636764C228103B610013E589 /* Project object */;
 }
