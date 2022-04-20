@@ -17,32 +17,47 @@ class CryptoInteractor: CryptoInteractorProtocol {
     
     var presenter: CryptoPresenterProtocol?
 
-    
     func downloadCryptos() {
-           let urlString = "https://raw.githubusercontent.com/atilsamancioglu/IA32-CryptoComposeData/main/cryptolist.json"
-           
-           
-           AF.request(urlString).responseData {  (response) in
-               switch response.result {
-                   
-                          case .success(let data):
-                              let decoder = Decoders.plainDateDecoder
-                              
-                              do {
-                                  let response = try decoder.decode([CryptoModel].self, from: data)
-                                  self.presenter?.interactorDidDownloadCrypto(result: .success(response))
-                                 
-                              } catch {
-                                  self.presenter?.interactorDidDownloadCrypto(result: .failure(APIError.serializationError(internal: error)))
-                              }
-                              
-                          case .failure(let error):
-                           self.presenter?.interactorDidDownloadCrypto(result: .failure(APIError.networkError(internal: error)))
-                  }
-             }
-           }
-        
+        CryptoWebService.shared.getTrendingMovies { [weak self] result in
+            switch  result {
+            case .success(let data):
+                self?.presenter?.interactorDidDownloadCrypto(result: .success(data))
+            case .failure(let error):
+                self?.presenter?.interactorDidDownloadCrypto(result: .failure(APIError.networkError(internal: error)))
+            }
+        }
+    }
+    
 }
     
     
+
+
+
+
+
+//MARK: - 
+//    func downloadCryptos() {
+//           let urlString = "https://raw.githubusercontent.com/atilsamancioglu/IA32-CryptoComposeData/main/cryptolist.json"
+//
+//
+//           AF.request(urlString).responseData {  (response) in
+//               switch response.result {
+//
+//                          case .success(let data):
+//                              let decoder = Decoders.plainDateDecoder
+//
+//                              do {
+//                                  let response = try decoder.decode([CryptoModel].self, from: data)
+//                                  self.presenter?.interactorDidDownloadCrypto(result: .success(response))
+//
+//                              } catch {
+//                                  self.presenter?.interactorDidDownloadCrypto(result: .failure(APIError.serializationError(internal: error)))
+//                              }
+//
+//                          case .failure(let error):
+//                           self.presenter?.interactorDidDownloadCrypto(result: .failure(APIError.networkError(internal: error)))
+//                  }
+//             }
+//    }
 
