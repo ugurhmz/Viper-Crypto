@@ -11,18 +11,23 @@ import Foundation
 class CryptoPresenter: CryptoPresenterProtocol  {
     
     var view: CryptoViewProtocol?
-    var interactor: CryptoInteractorProtocol?
-    var router: CryptoRouterProtocol?
-    
-    func interactorDidDownloadCrypto(result: Result<[CryptoModel], Error>) {
-        
-        switch result {
-        case .success(let cryptoList):
-            print("view.upadte" ,cryptoList)
-        case .failure(let error):
-            print(error.localizedDescription)
+    var interactor: CryptoInteractorProtocol? {
+        didSet {
+            interactor?.downloadCryptos()
         }
     }
+    var router: CryptoRouterProtocol?
+    
+  
+    
+    func interactorDidDownloadCrypto(result: Result<[CryptoModel], Error>) {
+           switch result {
+               case .success(let cryptos):
+                   view?.update(with: cryptos)
+               case .failure(_):
+                   view?.update(with: "Try again later")
+           }
+       }
     
     
 }

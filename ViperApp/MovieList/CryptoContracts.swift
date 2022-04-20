@@ -6,11 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 
-//MARK: - View
+//MARK: - View (4)
 protocol CryptoViewProtocol {
+    var presenter: CryptoPresenterProtocol? { get set }
     
+    // presenter'dan güncelleme bilgisini alır.
+    func update(with cryptos: [CryptoModel])
+    func update(with error: String)
 }
 
 
@@ -26,11 +31,12 @@ protocol CryptoInteractorProtocol {
 
 //MARK: - Presenter (2)
 protocol CryptoPresenterProtocol {
-    
+    var router: CryptoRouterProtocol? { get set }
+    var interactor: CryptoInteractorProtocol? { get set}
     // 1- V,I,R protocolleri tipinde, değişken olarak tanımla.
     var view: CryptoViewProtocol? { get set}
-    var interactor: CryptoInteractorProtocol? { get set}
-    var router: CryptoRouterProtocol? { get set }
+
+  
    
     
     
@@ -39,11 +45,15 @@ protocol CryptoPresenterProtocol {
 }
 
 
+typealias EntryPoint = CryptoViewProtocol & UIViewController
 
 
 //MARK: - Router  (1)
 protocol CryptoRouterProtocol {
     static func startExecution() -> CryptoRouterProtocol
+    
+    // (5)
+    var entry: EntryPoint? { get }
 }
 
 

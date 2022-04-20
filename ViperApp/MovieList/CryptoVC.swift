@@ -8,12 +8,31 @@
 import UIKit
 
 class CryptoVC: UIViewController {
-
+    
+    var presenter: CryptoPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemYellow
     }
 
+}
 
+
+//MARK: -
+extension CryptoVC: CryptoViewProtocol {
+   
+    
+    func update(with cryptos: [CryptoModel]) {
+        DispatchQueue.main.async {
+            print(cryptos)
+        }
+    }
+    
+    func update(with error: String) {
+        print(error)
+    }
+    
+    
 }
 

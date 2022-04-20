@@ -59,6 +59,15 @@
 			path = MovieList;
 			sourceTree = "<group>";
 		};
+		630498932810637D00027BCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6304988A2810539F00027BCF /* CryptoModel.swift */,
+				6304989128105F1D00027BCF /* Decoders.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		636764C128103B610013E589 = {
 			isa = PBXGroup;
 			children = (
@@ -78,10 +87,9 @@
 		636764CC28103B610013E589 /* ViperApp */ = {
 			isa = PBXGroup;
 			children = (
+				630498932810637D00027BCF /* Model */,
 				636764E128103BAA0013E589 /* Core */,
 				63049883281052FB00027BCF /* MovieList */,
-				6304988A2810539F00027BCF /* CryptoModel.swift */,
-				6304989128105F1D00027BCF /* Decoders.swift */,
 			);
 			path = ViperApp;
 			sourceTree = "<group>";
